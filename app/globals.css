@@ -1,0 +1,242 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   CYBER INVESTIGATION GAME THEME
+   Dark, immersive aesthetic with neon accents
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Import monospace font for terminal aesthetics */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Design Tokens (CSS Custom Properties)
+   ───────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Backgrounds - near-black tones */
+  --bg-primary: #0d0d0f;
+  --bg-secondary: #13141a;
+  --bg-elevated: #1a1b23;
+  --bg-card: #1e1f28;
+
+  /* Accent colors - neon cyber tones */
+  --accent-cyan: #00f0ff;
+  --accent-cyan-dim: #00a8b3;
+  --accent-green: #00ff88;
+  --accent-green-dim: #00b35f;
+  --accent-purple: #a855f7;
+
+  /* Danger/Warning - soft, not aggressive */
+  --danger-soft: #ff5a5a;
+  --danger-dim: #cc4848;
+  --warning-amber: #ffb020;
+
+  /* Text */
+  --text-primary: #e8eaed;
+  --text-secondary: #a8abb3;
+  --text-muted: #6b6e75;
+
+  /* Borders */
+  --border-subtle: #2a2b33;
+  --border-glow: #3a3b45;
+
+  /* Glows */
+  --glow-cyan: rgba(0, 240, 255, 0.4);
+  --glow-green: rgba(0, 255, 136, 0.4);
+  --glow-danger: rgba(255, 90, 90, 0.4);
+
+  /* Timing */
+  --transition-fast: 0.1s ease;
+  --transition-normal: 0.15s ease;
+  --transition-smooth: 0.25s ease;
+
+  /* Typography */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Base Resets & Defaults
+   ───────────────────────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-main);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Ambient background with subtle gradient */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(0, 240, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(0, 255, 136, 0.02) 0%, transparent 40%),
+    var(--bg-primary);
+  pointer-events: none;
+  z-index: -1;
+}
+
+a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-cyan-dim);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Utility Classes
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Glows */
+.glow-cyan {
+  box-shadow: 0 0 20px var(--glow-cyan), 0 0 40px rgba(0, 240, 255, 0.1);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px var(--glow-green), 0 0 40px rgba(0, 255, 136, 0.1);
+}
+
+.glow-danger {
+  box-shadow: 0 0 20px var(--glow-danger), 0 0 40px rgba(255, 90, 90, 0.1);
+}
+
+/* Text glow */
+.text-glow-cyan {
+  text-shadow: 0 0 10px var(--glow-cyan);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 10px var(--glow-green);
+}
+
+/* Monospace text */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Animations
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Subtle pulse animation for buttons */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--glow-cyan);
+  }
+}
+
+/* Fade in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scanline effect (very subtle) */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Blinking cursor for terminal effect */
+@keyframes blink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Timer urgency pulse */
+@keyframes urgency-pulse {
+
+  0%,
+  100% {
+    background-color: var(--danger-soft);
+  }
+
+  50% {
+    background-color: var(--danger-dim);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Scrollbar Styling (Webkit)
+   ───────────────────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-glow);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Selection Styling
+   ───────────────────────────────────────────────────────────────────────────── */
+::selection {
+  background-color: rgba(0, 240, 255, 0.3);
+  color: var(--text-primary);
+}
