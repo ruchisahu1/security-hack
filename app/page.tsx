@@ -18,10 +18,9 @@ export default function HomePage() {
                     fontSize: "32px",
                     fontWeight: 700,
                     marginBottom: "16px",
-                    color: "#111827",
                 }}
             >
-                🔐 Wi-Fi Security Game
+                🔐 AI Security Engineer
             </h1>
 
             <p

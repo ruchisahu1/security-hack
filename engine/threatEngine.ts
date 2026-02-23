@@ -135,7 +135,7 @@ export function escalateThreats(
         } else if (threat.severity === "medium") {
             // Escalate to high after mediumToHighScenes more scenes (total from creation)
             const totalScenesForHigh = lowToMediumScenes + mediumToHighScenes;
-            if (scenesSinceCreation >= totalScenesForHigh && threat.severity !== "high") {
+            if (scenesSinceCreation >= totalScenesForHigh) {
                 threat.severity = "high";
                 
                 // Trigger consequences for high severity threats (only once)
