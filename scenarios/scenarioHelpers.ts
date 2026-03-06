@@ -4,7 +4,7 @@
  */
 
 import type { GameState, SceneOption } from "../engine/gameState";
-import { hasActiveThreat, getActiveThreats, type ThreatType } from "../engine/threatEngine";
+import { hasActiveThreat, getActiveThreats } from "../engine/threatEngine";
 import { hasFlag } from "../engine/gameState";
 
 /**
