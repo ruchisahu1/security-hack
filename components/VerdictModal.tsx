@@ -13,6 +13,7 @@ interface VerdictModalProps {
   isOpen: boolean;
   onClose?: () => void;
   onReplay?: () => void;
+  onHome?: () => void;
 }
 
 export function VerdictModal({
@@ -20,6 +21,7 @@ export function VerdictModal({
   isOpen,
   onClose,
   onReplay,
+  onHome,
 }: VerdictModalProps) {
   if (!isOpen) return null;
 
@@ -164,6 +166,14 @@ export function VerdictModal({
             >
               Play Again
             </button>
+          )}
+          {onHome && (
+              <button
+                  className="verdict-modal__button verdict-modal__button--home"
+                  onClick={onHome}
+              >
+                Home
+              </button>
           )}
           {onClose && (
             <button
@@ -415,6 +425,16 @@ export function VerdictModal({
           background: var(--bg-card);
           border-color: var(--text-muted);
           color: var(--text-primary);
+        }
+        .verdict-modal__button--home {
+          background: linear-gradient(135deg, #facc15, #eab308);
+          color: #111;
+          box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
+        }
+        
+        .verdict-modal__button--home:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 0 25px rgba(250, 204, 21, 0.7);
         }
       `}</style>
     </div>
