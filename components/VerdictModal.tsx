@@ -158,6 +158,7 @@ export function VerdictModal({
           )}
         </div>
 
+
         <div className="verdict-modal__footer">
           {onReplay && (
             <button
