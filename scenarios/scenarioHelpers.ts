@@ -3,7 +3,7 @@
  * Utilities for building connected scenarios that react to game state
  */
 
-import type { GameState, SceneOption } from "../engine/gameState";
+import type { GameState, SceneOption, ThreatType } from "../engine/gameState";
 import { hasActiveThreat, getActiveThreats } from "../engine/threatEngine";
 import { hasFlag } from "../engine/gameState";
 
