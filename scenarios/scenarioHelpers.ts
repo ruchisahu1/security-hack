@@ -14,7 +14,6 @@ export interface ScenarioDefinition {
     id: string;
     title: string;
     intro: string;
-    scenes: SceneData[];
 }
 
 /**
