@@ -366,7 +366,7 @@ export function GameShell({
                     isOpen={true}
                     onReplay={handleReplay}
                     onClose={handleCloseVerdict}
-
+                    onHome={() => window.location.href="https://missionx.junkbot.co/user/gamified"}
                 />
             )}
 
@@ -377,7 +377,7 @@ export function GameShell({
                     isOpen={true}
                     onReplay={handleReplay}
                     onClose={handleCloseVerdict}
-                    
+                    onHome={() => window.location.href="https://missionx.junkbot.co/user/gamified"}
                 />
             )}
 

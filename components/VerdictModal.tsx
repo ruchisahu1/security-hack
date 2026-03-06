@@ -168,6 +168,14 @@ export function VerdictModal({
               Play Again
             </button>
           )}
+          {onHome && (
+              <button
+                  className="verdict-modal__button verdict-modal__button--home"
+                  onClick={onHome}
+              >
+                Home
+              </button>
+          )}
           {onClose && (
             <button
               className="verdict-modal__button verdict-modal__button--secondary"
